@@ -1,0 +1,32 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tarefa</th>
+      <th scope="col">Deletar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ task.description }}</td>
+      <td>
+        <button (click)="deleteTask(i)" class="btn btn-danger float-start">
+          Deletar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="mb-3">
+  <label for="formGroupExampleInput" class="form-label">Cadastrar</label>
+  <input
+    [(ngModel)]="newTaskDescription"
+    type="text"
+    class="form-control"
+    id="formGroupExampleInput"
+    placeholder="Tarefa"
+  />
+  <button (click)="addTask()" type="button" class="btn btn-dark">Criar</button>
+</div>
